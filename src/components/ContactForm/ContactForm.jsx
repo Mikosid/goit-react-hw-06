@@ -12,8 +12,8 @@ const ContactSchema = Yup.object().shape({
     .required("This field is required"),
   number: Yup.string()
     .matches(/^[0-9]+$/, "Must be only digits")
-    .min(7, "Too short, min 7 letters!")
-    .max(10, "Too long, max 10 letters!")
+    .min(7, "Too short, min 7 digits!")
+    .max(10, "Too long, max 10 digits!")
     .required("This field is required"),
 });
 
@@ -45,14 +45,14 @@ export default function ContactForm() {
           <Field className={css.input} type="text" name="name" />
           <ErrorMessage className={css.error} name="name" component="span" />
         </div>
-
         <div className={css.formGroup}>
           <label className={css.text}>Number</label>
           <Field className={css.input} type="text" name="number" />
           <ErrorMessage className={css.error} name="number" component="span" />
         </div>
-
-        <button type="submit">Add contact</button>
+        <button type="submit" className={css.button}>
+          Add contact
+        </button>
       </Form>
     </Formik>
   );
